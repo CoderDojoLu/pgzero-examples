@@ -5,3 +5,6 @@ HEIGHT = 300
 # How can we replace the tuple (128, 0 ,0)?
 def draw():
     screen.fill((128, 0, 0))
+
+# In other news, there is a file called: colors.py in this repository
+# What does it do?

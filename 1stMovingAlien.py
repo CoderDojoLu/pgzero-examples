@@ -1,11 +1,9 @@
 # This seems like magic!?!!!! But why?
 alien = Actor('alien')
 
-# Play around with the aliens .pos parameter, what do you observe?
+# Play around with the aliens .topright parameter, what do you observe?
 alien.topright = 0, 10
 
-# More magic, what happens if the screen is too small? Oh and what is the
-# .height option? print() anyone?
 WIDTH = 500
 HEIGHT = alien.height + 20
 
