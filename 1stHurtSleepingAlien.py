@@ -22,7 +22,7 @@ def update():
 def on_mouse_down(pos, button):
     if button == mouse.LEFT and alien.collidepoint(pos):
         sounds.eep.play()
-        alien.image = 'alien_hurt'
+        alien.image = 'alienHurt'
         time.sleep(1)
         alien.image = 'alien'
     else:
