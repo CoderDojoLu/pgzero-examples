@@ -1,4 +1,3 @@
-# This seems like magic!?!!!! But why?
 alien = Actor('alien')
 
 # Play around with the aliens .topright parameter, what do you observe?

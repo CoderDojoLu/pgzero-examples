@@ -1,4 +1,3 @@
-# This seems like magic!?!!!! But why?
 alien = Actor('alien')
 
 alien.topright = 0, 10
@@ -10,7 +9,7 @@ def draw():
     screen.clear()
     alien.draw()
 
-# This is where you want to move things around, it gets called like 60 times per second
+# This is where you want to move things around, it gets called once (1) per frame
 def update():
     alien.left += 2
     if alien.left > WIDTH:
