@@ -1,0 +1,1 @@
+This is a simple Game of Life pygame tutorial copied from @TrevorAppleton 's tutorial: http://trevorappleton.blogspot.co.uk/2013/07/python-game-of-life.html
