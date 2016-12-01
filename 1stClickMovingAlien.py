@@ -18,6 +18,8 @@ def update():
 # SO now it knows when we click on it. But where do we click and why is the variable pos
 # in the picture all of a sudden (without defining it?!?!?) print() anyone?
 def on_mouse_down(pos):
+    # Let us see where the mouse is
+    print("Mouse position: {}".format(pos))
     if alien.collidepoint(pos):
         print("Eek!")
     else:
