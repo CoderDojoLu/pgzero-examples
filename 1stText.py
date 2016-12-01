@@ -1,5 +1,11 @@
-from colors import *
+try:
+    from colors import *
+except ImportError:
+    raise ImportError('please use the python interpreter directly, pgzrun has issues with local module imports: python3 -m pgzero 1stText.py')
+
 import emoji
+
+alienEmoji = Actor('alien_emoji')
 
 MAIN_COLOR = GREEN
 
@@ -13,8 +19,9 @@ print(emoji.emojize(':alien: might win', use_aliases=True))
 
 def draw():
     screen.draw.text(
-                'Alien: {0}'.format(score),
+                ': {0}'.format(score),
                 color=MAIN_COLOR,
-                center=(WIDTH/4 - 20, 20),
+                center=(alienEmoji.width + (WIDTH/4) - 20, alienEmoji.height/2),
                 fontsize=48
             )
+    alienEmoji.draw()

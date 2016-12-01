@@ -5,7 +5,11 @@
 
 # remember we have a nice colors.py file, let's use it and just not think too
 # much about redefining colors ourselves, read colors.py to know what is available
-from colors import *
+# please use python3 -m pgzero mySource.py to run when import local modules
+try:
+    from colors import *
+except ImportError:
+    raise ImportError('please use the python interpreter directly, pgzrun has issues with local module imports: python3 -m pgzero 1stText.py')
 
 BOX1 = Rect((20,20), (100,100))
 BOX2 = Rect((40,40), (200,200))
