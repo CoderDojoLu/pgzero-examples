@@ -2,6 +2,11 @@ pgzero wants to be a zero boilerplate framework for pygame.
 
 Whilst this is mostly achieved by having a runner wrapper, pgzrun, there are other possibilities to get your files running.
 
+Documentation
+=============
+
+[Pygame Zero Reference PDF](https://media.readthedocs.org/pdf/pygame-zero/latest/pygame-zero.pdf)
+
 Installation
 ============
 
