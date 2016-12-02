@@ -1,3 +1,4 @@
 emoji
+numpy
 pgzero
 hg+http://bitbucket.org/pygame/pygame
