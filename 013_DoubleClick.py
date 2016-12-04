@@ -12,11 +12,9 @@ HEIGHT = panic.height
 # This is a simple and stupid double click implementation
 # And we will define some global variables that will be visible in all our
 # functions that handle mouse events (or any other functions, like draw())
-global lastClick
-lastClick = currentClick = clickDelta = 0
+lastClick = currentClick = 0
 
 # Here we define the duration of the double click
-global double_click_duration
 double_click_duration = 0.5
 
 def draw():
@@ -24,6 +22,7 @@ def draw():
 
 def on_mouse_down(pos, button):
     global lastClick
+    global double_click_duration
     now = time()
     print("You clicked the", button.name.lower(), "mouse button at", pos)
     if now - lastClick <= double_click_duration:
