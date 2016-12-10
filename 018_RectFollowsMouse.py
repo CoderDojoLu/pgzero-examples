@@ -4,13 +4,11 @@
 try:
     from colors import *
 except ImportError:
-    raise ImportError('please use the python interpreter directly, pgzrun has issues with local module imports: python3 -m pgzero 1stText.py')
+    raise ImportError('please use the python interpreter directly, pgzrun has issues with local module imports: python3 -m pgzero 018_RectFollowsMouse.py')
 
+# Define our 800x600 screen
 WIDTH = 800
 HEIGHT = 600
-
-# The following will assign a tuple to the variable RED
-RED = 200, 0, 0
 
 # This will literally put a rectangle with certain properties into the variable BOX
 BOX1 = Rect((0,0), (0,0))

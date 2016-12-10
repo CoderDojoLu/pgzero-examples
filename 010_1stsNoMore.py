@@ -9,7 +9,7 @@
 try:
     from colors import *
 except ImportError:
-    raise ImportError('please use the python interpreter directly, pgzrun has issues with local module imports: python3 -m pgzero 1stText.py')
+    raise ImportError('please use the python interpreter directly, pgzrun has issues with local module imports: python3 -m pgzero 010_1stsNoMore.py')
 
 BOX1 = Rect((20,20), (100,100))
 BOX2 = Rect((40,40), (200,200))
