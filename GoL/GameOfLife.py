@@ -15,7 +15,7 @@ CELLSIZE = 10
 assert WINDOWWIDTH % CELLSIZE == 0, "Window width must be a multiple of cell size"
 assert WINDOWHEIGHT % CELLSIZE == 0, "Window height must be a multiple of cell size"
 
-#Determine number of cells in horizonatl and vertical plane
+#Determine number of cells in horizontal and vertical plane
 CELLWIDTH = WINDOWWIDTH / CELLSIZE # number of cells wide
 CELLHEIGHT = WINDOWHEIGHT / CELLSIZE # Number of cells high
 
