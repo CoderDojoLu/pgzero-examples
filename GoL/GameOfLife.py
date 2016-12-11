@@ -1,48 +1,37 @@
-#!/usr/bin/env python3
-import pygame, sys
-from pygame.locals import *
 import random
 
 #Number of frames per second
 FPS = 10
 
 ###Sets size of grid
-WINDOWWIDTH = 640
-WINDOWHEIGHT = 480
+WIDTH = 640
+HEIGHT = 480
+TITLE = 'Game of Life'
 CELLSIZE = 10
 
 #Check to see if the width and height are multiples of the cell size.
-assert WINDOWWIDTH % CELLSIZE == 0, "Window width must be a multiple of cell size"
-assert WINDOWHEIGHT % CELLSIZE == 0, "Window height must be a multiple of cell size"
+assert WIDTH % CELLSIZE == 0, "Window width must be a multiple of cell size"
+assert HEIGHT % CELLSIZE == 0, "Window height must be a multiple of cell size"
 
 #Determine number of cells in horizontal and vertical plane
-CELLWIDTH = WINDOWWIDTH / CELLSIZE # number of cells wide
-CELLHEIGHT = WINDOWHEIGHT / CELLSIZE # Number of cells high
+CELLWIDTH = WIDTH / CELLSIZE # number of cells wide
+CELLHEIGHT = HEIGHT / CELLSIZE # Number of cells high
 
 # set up the colours
 BLACK =    (0,  0,  0)
 WHITE =    (255,255,255)
 DARKGRAY = (40, 40, 40)
 GREEN =    (0,255,0)
+RED =    (255,0,0)
 
 #Draws the grid lines
-def drawGrid():
-    for x in range(0, WINDOWWIDTH, CELLSIZE): # draw vertical lines
-        pygame.draw.line(DISPLAYSURF, DARKGRAY, (x,0),(x,WINDOWHEIGHT))
-    for y in range (0, WINDOWHEIGHT, CELLSIZE): # draw horizontal lines
-        pygame.draw.line(DISPLAYSURF, DARKGRAY, (0,y), (WINDOWWIDTH, y))
-
-#Colours the cells green for life and white for no life
-def colourGrid(item, lifeDict):
-    x = item[0]
-    y = item[1]
-    y = y * CELLSIZE # translates array into grid size
-    x = x * CELLSIZE # translates array into grid size
-    if lifeDict[item] == 0:
-        pygame.draw.rect(DISPLAYSURF, WHITE, (x, y, CELLSIZE, CELLSIZE))
-    if lifeDict[item] == 1:
-        pygame.draw.rect(DISPLAYSURF, GREEN, (x, y, CELLSIZE, CELLSIZE))
-    return None
+def drawGrid(screen):
+    screen.fill(WHITE)
+    for x in range(0, WIDTH, CELLSIZE): # draw vertical lines
+        screen.draw.line((x,0),(x,HEIGHT), RED)
+    for y in range (0, HEIGHT, CELLSIZE): # draw horizontal lines
+        screen.draw.line((0,y), (WIDTH, y), RED)
+    return screen
 
 #Creates an dictionary of all the cells
 #Sets all cells as dead (0)
@@ -60,6 +49,20 @@ def startingGridRandom(lifeDict):
         lifeDict[item] = random.randint(0,1)
     return lifeDict
 
+lifeDict = blankGrid() # creates library and Populates to match blank grid
+lifeDict = startingGridRandom(lifeDict) # Assign random life
+
+#Colours the cells green for life and white for no life
+def colourGrid(item, lifeDict, screen):
+    x = item[0]
+    y = item[1]
+    y = y * CELLSIZE # translates array into grid size
+    x = x * CELLSIZE # translates array into grid size
+    if lifeDict[item] == 0:
+        screen.draw.filled_rect(Rect((x, y), (CELLSIZE, CELLSIZE)), WHITE)
+    if lifeDict[item] == 1:
+        screen.draw.filled_rect(Rect((x, y), (CELLSIZE, CELLSIZE)), GREEN)
+    return None
 
 #Determines how many alive neighbours there are around each cell
 def getNeighbours(item,lifeDict):
@@ -96,42 +99,18 @@ def tick(lifeDict):
                 newTick[item] = 0 # keep status quo (death)
     return newTick
 
-#main function
-def main():
-    pygame.init()
-    global DISPLAYSURF
-    FPSCLOCK = pygame.time.Clock()
-    DISPLAYSURF = pygame.display.set_mode((WINDOWWIDTH,WINDOWHEIGHT))
-    pygame.display.set_caption('Game of Life')
+def draw():
+    #Colours the live cells, blanks the dead
+    for item in lifeDict:
+        colourGrid(item, lifeDict, screen)
+    ##drawGrid(screen)
 
-    DISPLAYSURF.fill(WHITE)
-
-    lifeDict = blankGrid() # creates library and Populates to match blank grid
-    lifeDict = startingGridRandom(lifeDict) # Assign random life
+def update():
+    global lifeDict
+    #runs a tick
+    lifeDict = tick(lifeDict)
 
     #Colours the live cells, blanks the dead
     for item in lifeDict:
-        colourGrid(item, lifeDict)
-
-    drawGrid()
-    pygame.display.update()
-
-    while True: #main game loop
-        for event in pygame.event.get():
-            if event.type == QUIT:
-                pygame.quit()
-                sys.exit()
-
-        #runs a tick
-        lifeDict = tick(lifeDict)
-
-        #Colours the live cells, blanks the dead
-        for item in lifeDict:
-            colourGrid(item, lifeDict)
-
-        drawGrid()
-        pygame.display.update()
-        FPSCLOCK.tick(FPS)
-
-if __name__=='__main__':
-    main()
+        colourGrid(item, lifeDict, screen)
+    ##drawGrid(screen)
