@@ -1,6 +1,6 @@
 import random
 
-#Number of frames per second
+#Number of frames per second, not used at the moment
 FPS = 10
 
 ###Sets size of grid
@@ -22,16 +22,13 @@ BLACK =    (0,  0,  0)
 WHITE =    (255,255,255)
 DARKGRAY = (40, 40, 40)
 GREEN =    (0,255,0)
-RED =    (255,0,0)
 
 #Draws the grid lines
-def drawGrid(screen):
-    screen.fill(WHITE)
+def drawGrid():
     for x in range(0, WIDTH, CELLSIZE): # draw vertical lines
-        screen.draw.line((x,0),(x,HEIGHT), RED)
+        screen.draw.line((x,0),(x,HEIGHT), DARKGRAY)
     for y in range (0, HEIGHT, CELLSIZE): # draw horizontal lines
-        screen.draw.line((0,y), (WIDTH, y), RED)
-    return screen
+        screen.draw.line((0,y), (WIDTH, y), DARKGRAY)
 
 #Creates an dictionary of all the cells
 #Sets all cells as dead (0)
@@ -53,7 +50,7 @@ lifeDict = blankGrid() # creates library and Populates to match blank grid
 lifeDict = startingGridRandom(lifeDict) # Assign random life
 
 #Colours the cells green for life and white for no life
-def colourGrid(item, lifeDict, screen):
+def colourGrid(item, lifeDict):
     x = item[0]
     y = item[1]
     y = y * CELLSIZE # translates array into grid size
@@ -100,10 +97,13 @@ def tick(lifeDict):
     return newTick
 
 def draw():
+    # This does not work at the moment
+    screen.fill(WHITE)
+
     #Colours the live cells, blanks the dead
     for item in lifeDict:
-        colourGrid(item, lifeDict, screen)
-    ##drawGrid(screen)
+        colourGrid(item, lifeDict)
+    drawGrid()
 
 def update():
     global lifeDict
@@ -112,5 +112,5 @@ def update():
 
     #Colours the live cells, blanks the dead
     for item in lifeDict:
-        colourGrid(item, lifeDict, screen)
-    ##drawGrid(screen)
+        colourGrid(item, lifeDict)
+    drawGrid()
