@@ -1,4 +1,4 @@
 emoji
 numpy
-pgzero
 hg+http://bitbucket.org/pygame/pygame
+hg+http://bitbucket.org/SteveClement/pgzero
