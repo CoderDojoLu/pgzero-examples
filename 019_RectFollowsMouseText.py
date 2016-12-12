@@ -27,8 +27,8 @@ def draw():
     screen.draw.rect(BOX2, BLUE)
 
     # 2 Lines to show when we stop growing our font
-    screen.draw.line((0,growMin), (WIDTH, growMin),(GREEN))
-    screen.draw.line((0,growMax), (WIDTH, growMax),(GREEN10))
+    screen.draw.line((0,growMin), (WIDTH, growMin),(GREEN),3)
+    screen.draw.line((0,growMax), (WIDTH, growMax),(GREEN10),3)
 
     # Draw some text on the screen to give an idea where our mouse is at
     screen.draw.text(
