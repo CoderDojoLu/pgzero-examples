@@ -4,7 +4,7 @@
 try:
     from colors import *
 except ImportError:
-    raise ImportError('please use the python interpreter directly, pgzrun has issues with local module imports: python3 -m pgzero 018_RectFollowsMouseText.py')
+    raise ImportError('please use the python interpreter directly, pgzrun has issues with local module imports: python3 -m pgzero 019_RectFollowsMouseText.py')
 
 # Define our 800x600 screen
 WIDTH = 800
