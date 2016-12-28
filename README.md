@@ -29,8 +29,8 @@ Install both packages as follows
 $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 $ brew install sdl sdl_image sdl_mixer sdl_sound sdl_ttf python3 hg
 $ pip3 install -U pip
-$ pip3 install hg+http://bitbucket.org/pygame/pygame
-$ pip3 install pgzero
+$ pip3 install -U hg+http://bitbucket.org/pygame/pygame
+$ pip3 install -U hg+http://bitbucket.org/SteveClement/pgzero
 
 Anaconda
 ========
@@ -61,7 +61,7 @@ $ conda update conda
 $ source activate
 (root) $ pip install -U pip
 (root) $ pip install hg+http://bitbucket.org/pygame/pygame
-(root) $ pip install pgzero
+(root) $ pip install hg+http://bitbucket.org/SteveClement/pgzero
 </pre>
 
 
