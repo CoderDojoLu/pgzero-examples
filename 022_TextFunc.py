@@ -27,31 +27,22 @@ def draw():
     # What if we do not clear the screen?
     screen.clear()
 
-    # Needs to be define before we use growMin and growMax
-    mouseFont = fontNormalized(mousePos[1])
-
-    # Draw some text on the screen to give an idea where our mouse is at
-    screen.draw.text(
-                        'mouseX: {0} mouseY: {1}'.format(mousePos[0], mousePos[1]),
-                        center=((WIDTH/2), 20),
-                        fontsize=48,
-                        color=YELLOW,
-                    )
-
-    screen.draw.text(
-                        '{}'.format(mousePos),
-                        center=mousePos,
-                        fontsize=mouseFont,
-                        color=PINK,
-        )
+    # Use our drawText() function
+    drawText()
 
 def on_mouse_move(pos):
     global mousePos
     x, y = pos
-    BOX1.size = (x, y)
-    BOX2.center = (x, y)
     mousePos = pos
 
+def drawText(msg='Please set a message', fontSize=24, color=WHITE, center=(WIDTH/2, HEIGHT/2)):
+    # Draw some text on the screen to give an idea where our mouse is at
+    screen.draw.text(
+                        str(msg),
+                        center=center,
+                        fontsize=fontSize,
+                        color=color,
+                    )
 
 
 # Run the above code
