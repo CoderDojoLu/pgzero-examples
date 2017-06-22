@@ -1,7 +1,7 @@
 alien = Actor('alien')
 
 # Play around with the aliens .topright parameter, what do you observe?
-alien.topright = 0, 10
+alien.topright = 30, 10
 
 WIDTH = 500
 HEIGHT = alien.height + 20
