@@ -1,7 +1,7 @@
 try:
     from colors import *
 except ImportError:
-    raise ImportError('please use the python interpreter directly, pgzrun has issues with local module imports: python3 -m pgzero 1stText.py')
+    raise ImportError('please use the python interpreter directly, pgzrun has issues with local module imports: python3 -m pgzero 012_1stText.py')
 
 import emoji
 
