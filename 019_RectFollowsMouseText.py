@@ -34,6 +34,7 @@ def draw():
     screen.draw.text(
                         'mouseX: {0} mouseY: {1}'.format(mousePos[0], mousePos[1]),
                         center=((WIDTH/2), 20),
+                        sysfontname='arial',
                         fontsize=48,
                         color=YELLOW,
                     )
@@ -41,6 +42,7 @@ def draw():
     screen.draw.text(
                         '{}'.format(mousePos),
                         center=mousePos,
+                        sysfontname='arial',
                         fontsize=mouseFont,
                         color=PINK,
         )

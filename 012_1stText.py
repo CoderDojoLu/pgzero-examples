@@ -19,9 +19,10 @@ print(emoji.emojize(':alien: might win', use_aliases=True))
 
 def draw():
     screen.draw.text(
-                ': {0}'.format(score),
+                ' : {0}'.format(score),
                 color=MAIN_COLOR,
                 center=(alienEmoji.width + (WIDTH/4) - 20, alienEmoji.height/2),
+                sysfontname='arial',
                 fontsize=48
             )
     alienEmoji.draw()
