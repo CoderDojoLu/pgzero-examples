@@ -26,10 +26,9 @@ Install both packages as follows
 # Dependencies, homebrew
 ```
 $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-$ brew install sdl sdl_image sdl_mixer sdl_sound sdl_ttf python3 hg
-$ pip3 install -U pip
-$ pip3 install -U hg+http://bitbucket.org/pygame/pygame
-$ pip3 install -U hg+http://bitbucket.org/SteveClement/pgzero
+$ brew install sdl2 sdl2_image sdl2_mixer sdl2_sound sdl2_ttf python3
+$ pip3 install -U pip setuptools
+$ pip3 install -U git+https://github.org/SteveClement/pgzero
 ```
 
 # Anaconda
